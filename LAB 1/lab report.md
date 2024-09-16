@@ -17,6 +17,9 @@ Answer-  .What were the data backup and restore process before the migration?
          
          
 Produce a RACI matrix for the migration stakeholders
+-x-x-x-x-x-x-x-x-x-x--x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x
+
+
 Describe the most likely migration approach that will suit the chosen company.
 
 Answer-  .Hybrid Cloud approach will suit the Ambani cement company for the following reasons:-
