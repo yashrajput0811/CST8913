@@ -50,7 +50,6 @@ IaaS platforms often provide automated security configuration assessments, patch
 |                  |                      |
 |    [Managed Database Service]           |
 |            (PostgreSQL)                 |
-|                                         |
 +-----------------------------------------+
 
 The PaaS approach significantly reduces operational overhead by using cloud-native services, allowing developers to focus more on application logic rather than infrastructure management. It also provides built-in scalability and high availability features, though at the cost of some flexibility compared to the IaaS approach. PaaS providers typically manage system updates and security patches, which ensures systems remain current and protected.
