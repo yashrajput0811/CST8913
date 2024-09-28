@@ -17,7 +17,7 @@ This document outlines the migration strategies for moving a mid-sized retail co
 |  Local File System|                                    | Email Notification  |
 |    (File Storage) |                                    | (SMTP Server)       |
 +-------------------+                                    +---------------------+
-                    |                                m   |
+                    |                                    |
            +----------------------------------+-------------------------+
            |    Routers, Firewalls, and Local Network Infrastructure    |
            +------------------------------------------------------------+
