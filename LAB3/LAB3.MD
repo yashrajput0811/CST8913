@@ -7,9 +7,9 @@ This document outlines the migration strategies for moving a mid-sized retail co
 
 ```
 +----------------------------+                +--------------------------+
-|     Web Application         |                |        SQL Database       |
-| (Hosted on Physical Server) |                |  (Hosted on Physical SQL  |
-|                            |  <-- Network -->|        Server)            |
+|     Web Application        |                |        SQL Database      |
+| (Hosted on Physical Server)|                |  (Hosted on Physical SQL |
+|                            |<-- Network --> |        Server)           |
 +----------------------------+                +--------------------------+
          |                                                       |
          |                                                       |
