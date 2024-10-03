@@ -1,7 +1,7 @@
 
 # Target Architecture Overview
 
-This shift-and-move strategy will ensure high availability, redundancy, and fault tolerance by configuring the WebServerVM and SQLVM within a multi-region cloud environment. Key components of this architecture include replicated virtual machines (VMs) for both web and database tiers, load balancers to distribute traffic, and automatic failover mechanisms.
+This approach will guarantee maximum uptime, redundancy and fault-tolerance by deploying the WebServerVM and SQLVM in a multi-regional cloud architecture. Essential elements of such an architecture include replicated web and database virtual machines, load balancers and automatic failure epicycle recovery methods.
 
 ## Target Architecture Diagram
 
@@ -37,19 +37,19 @@ This shift-and-move strategy will ensure high availability, redundancy, and faul
 
 ## Key Components
 
-- **Multi-Region VM Replication**: The two VMs, WebServerVM (frontend) and SQLVM (backend), will be replicated in two or more cloud regional zones.
+- **Multi-Region VM Replication**: The two VMs, WebServerVM (frontend) and SQLVM (backend), shall be replicated in two or more cloud regional zones encompassing the cloud VMs.
 
-- **Load Balancers**: Global load balancers will direct traffic to the nearest healthy region, ensuring balanced traffic distribution across regions.
+- **Load Balancers**: Global load balancers will point the traffic towards the healthy nearest region and therefore traffic will be evenly spread across various regions.
 
-- **Automatic Failover**: In case of regional failure, WebServerVMs and SQLVM will fail over to the other active region. SQLVM in the secondary region will assume the role of the backend if the primary region fails.
+- **Automatic Failover**: In case of regional failure, WebServerVMs and SQLVM will be failed over to the other active region. In case the primary region fails, it will be assumed by the SQLVM of region 2 that there is only SQL backend.
 
-- **Database Replication**: SQLVM will use asynchronous replication between the primary and secondary regions. In case of failover, minimal data loss will occur due to the asynchronous replication.
+- **Database Replication**: SQLVM shall perform asynchronous replication between primary and secondary regions. However, as elegant as it sounds, in case any fail over, there will be loss of data due to asynchronous replication.
 
 ## Architecture Assumptions
 
-- **Global Load Balancer**: This device is positioned above both regions and connects multiple client edges. It routes traffic based on geographical distance and region health. If Region A fails, Region B will take over the traffic, minimizing downtime.
+- **Global Load Balancer**: This device is placed above both regions and connects a number of client edges. This device allows for cutting traffic by region with respect to geographical distance and region health. In case Region A stops functioning, Region B will take over the traffic and therefore avoid any service downtime.
 
-- **WebServerVM Replication**: The static content of the application will be mounted on WebServerVM instances in both Region A and Region B. Load balancers will distribute traffic to healthy instances, and static content will be synchronized between the regions.
+- **WebServerVM Replication**: Application static content will be mounted onto WebServerVM instances located in Region A and in Region B as well.
 
 - **SQLVM Replication and Failover**: The SQLVM A (primary) database will be asynchronously replicated with SQLVM B (secondary). If Region A fails, SQLVM B will be promoted to primary, ensuring access to the latest data with minimal loss.
 
