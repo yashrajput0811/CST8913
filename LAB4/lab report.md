@@ -58,13 +58,13 @@ This approach will guarantee maximum uptime, redundancy and fault-tolerance by d
 ## Migration Steps
 
 1. **Replication of Virtual Machines Across Regions**:
-   - Deploy duplicate WebServerVM and SQLVM instances in Region B.
-   - Use the cloud provider’s native tools (e.g., AWS EC2 AMI, Azure VM Snapshot) to replicate the VMs' configurations across regions.
+   - Deploy the duplicate WebServerVM and SQLVM instances in Region B.
+   - Use the cloud provider’s native tools to replicate the VMs' configurations across regions.
    - Set up automatic replication of static content for WebServerVM across multiple regions.
 
 2. **Configuration of Load Balancers**:
    - Configuration of Load Balancers: Deploy regional load balancers in each Region A and Region B.
-   - Distribution of global traffic for the same services offered in two regional sites with a global load balancer functioning in primary load based(configuration).
+   - Distribution of global traffic for the same services offered in two regional sites with a global load balancer functioning in primary load.
    - Exchange VMs in both regions with working health checks to facilitate automatic recovery procedures when one region fails.
 
 4. **Database Replication and Failover Provisions**:
