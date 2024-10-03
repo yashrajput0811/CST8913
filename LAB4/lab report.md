@@ -73,5 +73,5 @@ This approach will guarantee maximum uptime, redundancy and fault-tolerance by d
    -  Provisions for monitoring as well as alerts for database replication and database performance issues.
 ## Conclusion
 
-This design facilitates an effective lift-and-shift migration to the cloud while ensuring high availability, automatic failover, and reduced mean downtime across regions. By replicating the front-end and back-end systems and using global load balancers, the application can continue operating even during prolonged regional outages, staying within the 6-hour downtime limit.
+This design enables efficient lift-and-shift cloud migration with minimal downtime, operational failover capability or regional unavailability and minimal mean down time. By employing Global Load Balancers and replicating both the front-end and back-end systems, the application can remain functional in the 6 hour downtime region even in case of lengthy regional outages.
 ```
