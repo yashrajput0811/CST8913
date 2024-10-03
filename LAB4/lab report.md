@@ -68,10 +68,9 @@ This approach will guarantee maximum uptime, redundancy and fault-tolerance by d
    - Exchange VMs in both regions with working health checks to facilitate automatic recovery procedures when one region fails.
 
 4. **Database Replication and Failover Provisions**:
-   - Set up asynchronous replication between SQLVM A (primary) and SQLVM B (secondary).
-   - Ensure failover provisions where, in case of Region A downtime, SQLVM B assumes the primary role.
-   - Establish monitoring and alert mechanisms for database replication and performance issues.
-
+   - Connect SQLVM A (primary) to SQLVM B (secondary) through asynchronous replication.
+   -  Provide for provisions for failover where region A is down and SQLVM B takes up the primary position.
+   -  Provisions for monitoring as well as alerts for database replication and database performance issues.
 ## Conclusion
 
 This design facilitates an effective lift-and-shift migration to the cloud while ensuring high availability, automatic failover, and reduced mean downtime across regions. By replicating the front-end and back-end systems and using global load balancers, the application can continue operating even during prolonged regional outages, staying within the 6-hour downtime limit.
