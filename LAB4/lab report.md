@@ -63,11 +63,11 @@ This approach will guarantee maximum uptime, redundancy and fault-tolerance by d
    - Set up automatic replication of static content for WebServerVM across multiple regions.
 
 2. **Configuration of Load Balancers**:
-   - Implement regional load balancers in both Region A and Region B.
-   - Configure global traffic distribution using a global load balancer with a "least load" primary selection feature.
-   - Implement health checks for VMs in both regions to enable automatic failover in case of failure.
+   - Configuration of Load Balancers: Deploy regional load balancers in each Region A and Region B.
+   - Distribution of global traffic for the same services offered in two regional sites with a global load balancer functioning in primary load based(configuration).
+   - Exchange VMs in both regions with working health checks to facilitate automatic recovery procedures when one region fails.
 
-3. **Database Replication and Failover Provisions**:
+4. **Database Replication and Failover Provisions**:
    - Set up asynchronous replication between SQLVM A (primary) and SQLVM B (secondary).
    - Ensure failover provisions where, in case of Region A downtime, SQLVM B assumes the primary role.
    - Establish monitoring and alert mechanisms for database replication and performance issues.
