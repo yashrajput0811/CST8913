@@ -1,4 +1,4 @@
-```md
+
 # Target Architecture Overview
 
 This shift-and-move strategy will ensure high availability, redundancy, and fault tolerance by configuring the WebServerVM and SQLVM within a multi-region cloud environment. Key components of this architecture include replicated virtual machines (VMs) for both web and database tiers, load balancers to distribute traffic, and automatic failover mechanisms.
