@@ -51,9 +51,9 @@ This approach will guarantee maximum uptime, redundancy and fault-tolerance by d
 
 - **WebServerVM Replication**: Application static content will be mounted onto WebServerVM instances located in Region A and in Region B as well.
 
-- **SQLVM Replication and Failover**: The SQLVM A (primary) database will be asynchronously replicated with SQLVM B (secondary). If Region A fails, SQLVM B will be promoted to primary, ensuring access to the latest data with minimal loss.
+- **SQLVM Replication and Failover**: SQLVM A will asynchronously replicate with SQLVM B. It is cautioned that if Region A were to fail, that SQLVM B would then be promoted to primary ensuring that there will be no or very little data loss of the best available data.
 
-- **Failover Mechanisms**: Both WebServerVM and SQLVM support automatic failover. The global load balancer will detect if any VMs become unavailable and re-route traffic accordingly. If SQLVM A fails, SQLVM B will automatically be promoted to primary, and a new replica will be created in the failed region upon recovery.
+- **Failover Mechanisms**: Both WebServerVM and SQLVM have continuity of operations through automatic failover features. It helps that the global load Masquée gets to know when there are VM’s which are not available and ensures that the traffic is redirected in the right way.
 
 ## Migration Steps
 
