@@ -13,21 +13,21 @@ This shift-and-move strategy will ensure high availability, redundancy, and faul
              ┌────────────────────────────────┴────────────────────────────────┐
              │                                                                 │
    ┌─────────────────────────────┐                                ┌──────────────────────────────┐
-   │ Region A (Primary)          │                                │ Region B (Secondary)          │
+   │ Region A (Primary)          │                                │ Region B (Secondary)         │
    └─────────────────────────────┘                                └──────────────────────────────┘
              │                                                                 │
    ┌─────────────────────────────┐                                ┌──────────────────────────────┐
-   │  Load Balancer A            │                                │  Load Balancer B              │
+   │  Load Balancer A            │                                │  Load Balancer B             │
    └─────────────────────────────┘                                └──────────────────────────────┘
              │                                                                 │
    ┌─────────────────────────────┐                                ┌──────────────────────────────┐
-   │ WebServerVM A               │                                │ WebServerVM B                 │
-   │ (Frontend - Static Content) │                                │ (Frontend - Static Content)   │
+   │ WebServerVM A               │                                │ WebServerVM B                │
+   │ (Frontend - Static Content) │                                │ (Frontend - Static Content)  │
    └─────────────────────────────┘                                └──────────────────────────────┘
              │                                                                 │
    ┌─────────────────────────────┐                                ┌──────────────────────────────┐
    │ SQLVM A                     │                                │ SQLVM B                      │
-   │ (Primary DB)                │                                │ (Secondary DB - Replication)  │
+   │ (Primary DB)                │                                │ (Secondary DB - Replication) │
    └─────────────────────────────┘                                └──────────────────────────────┘
              │                                                                 │
       ┌─────────────────────────────┐                              ┌──────────────────────────────┐
