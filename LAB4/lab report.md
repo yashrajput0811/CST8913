@@ -1,11 +1,13 @@
-                                                          High-Level Design (HLD) for Lift-and-Shift Migration
+Here is the content you've provided, formatted in Markdown for GitHub:
 
+```md
+# Target Architecture Overview
 
-Target Architecture Overview:
+This shift-and-move strategy will ensure high availability, redundancy, and fault tolerance by configuring the WebServerVM and SQLVM within a multi-region cloud environment. Key components of this architecture include replicated virtual machines (VMs) for both web and database tiers, load balancers to distribute traffic, and automatic failover mechanisms.
 
-This shift-and-move strategy will make certain that high availability, redundancy and fault tolerance principles will be achieved by configuring the WebServerVM and SQLVM within a multi-region cloud environment. Key components of this architecture include replicated virtual machines (VMs) for both web and database tiers, load balancers to distribute traffic, and automatic failover mechanisms.
+## Target Architecture Diagram
 
-Target Architecture Diagram:
+```
                                   ┌────────────────────────┐
                                   │   Global Load Balancer │
                                   └────────────────────────┘
@@ -13,75 +15,66 @@ Target Architecture Diagram:
              ┌────────────────────────────────┴────────────────────────────────┐
              │                                                                 │
    ┌─────────────────────────────┐                                ┌──────────────────────────────┐
-   │ Region A (Primary)          │                                │ Region B (Secondary)         │
+   │ Region A (Primary)           │                                │ Region B (Secondary)          │
    └─────────────────────────────┘                                └──────────────────────────────┘
              │                                                                 │
    ┌─────────────────────────────┐                                ┌──────────────────────────────┐
-   │  Load Balancer A            │                                │  Load Balancer B             │
+   │  Load Balancer A             │                                │  Load Balancer B              │
    └─────────────────────────────┘                                └──────────────────────────────┘
              │                                                                 │
    ┌─────────────────────────────┐                                ┌──────────────────────────────┐
-   │ WebServerVM A               │                                │ WebServerVM B                │
-   │ (Frontend - Static Content) │                                │ (Frontend - Static Content)  │
+   │ WebServerVM A                │                                │ WebServerVM B                 │
+   │ (Frontend - Static Content)  │                                │ (Frontend - Static Content)   │
    └─────────────────────────────┘                                └──────────────────────────────┘
              │                                                                 │
    ┌─────────────────────────────┐                                ┌──────────────────────────────┐
    │ SQLVM A                     │                                │ SQLVM B                      │
-   │ (Primary DB)                │                                │ (Secondary DB - Replication) │
+   │ (Primary DB)                │                                │ (Secondary DB - Replication)  │
    └─────────────────────────────┘                                └──────────────────────────────┘
              │                                                                 │
-   ┌─────────────────────────────┐                              ┌──────────────────────────────┐
-   │ Asynchronous DB Replication │──────────────────────────────│ Asynchronous DB Replication  │
-   └─────────────────────────────┘                              └──────────────────────────────┘
+      ┌─────────────────────────────┐                              ┌──────────────────────────────┐
+      │ Asynchronous DB Replication │──────────────────────────────│ Asynchronous DB Replication   │
+      └─────────────────────────────┘                              └──────────────────────────────┘
+```
 
+## Key Components
 
-Key Components:
+- **Multi-Region VM Replication**: The two VMs, WebServerVM (frontend) and SQLVM (backend), will be replicated in two or more cloud regional zones.
 
-Multi-Region VM Replication: The two VMs: the WebServerVM (frontend) and SQLVM (backend), will be replicated in two or more cloud regional zones.
+- **Load Balancers**: Global load balancers will direct traffic to the nearest healthy region, ensuring balanced traffic distribution across regions.
 
-Load Balancers: Global load balancers will be employed to expand the regions and direct traffic requesting regions to the closest possible healthy region.
+- **Automatic Failover**: In case of regional failure, WebServerVMs and SQLVM will fail over to the other active region. SQLVM in the secondary region will assume the role of the backend if the primary region fails.
 
-Automatic Failover: When regional failure occurs and in the case of the primary region, WebServer VM regions will fail over to the other active region and
-terms in the case of the SQLVM region for use as a backend.
+- **Database Replication**: SQLVM will use asynchronous replication between the primary and secondary regions. In case of failover, minimal data loss will occur due to the asynchronous replication.
 
-Data Base Replication: SQLVM will ensure that upon failover, the data lost will be negligible as it will use asynchronous replication only between the primary
-and secondary regions.
+## Architecture Assumptions
 
-Architecture Assumptions:
+- **Global Load Balancer**: This device is positioned above both regions and connects multiple client edges. It routes traffic based on geographical distance and region health. If Region A fails, Region B will take over the traffic, minimizing downtime.
 
-Global Load Balancer: This device is situated above the entire region with two regions located and connects multiple edges or views of clients normal way back
-at times it connects to a traffic received to that access global load balancer which checks up traffic on geographical distance or health of each region.
-If region A has failed, then region B will take all the traffic and in that way use pauses are reduced.
+- **WebServerVM Replication**: The static content of the application will be mounted on WebServerVM instances in both Region A and Region B. Load balancers will distribute traffic to healthy instances, and static content will be synchronized between the regions.
 
-WebServerVM Replication: The application static content is mounted on the WebServerVM instances in Region A and in Region B such that both of them are WebServerVM. 
-The load balancers will spread the traffic on healthy instances across the regions and static objects will be synchronized between the regions.
+- **SQLVM Replication and Failover**: The SQLVM A (primary) database will be asynchronously replicated with SQLVM B (secondary). If Region A fails, SQLVM B will be promoted to primary, ensuring access to the latest data with minimal loss.
 
-SQLVM Replication and Failover: The database in SQLVM A primary, will at some point in time be asynchronously replicated with SQLVM B secondary. 
-In case where failure happens in Region A, SQLVM B will be promoted to primary in order to avoid loss of data as a result of asynchronous replication. 
-By replicating the most recent SQL VM database information streams across regions, more current data access is achieved.
+- **Failover Mechanisms**: Both WebServerVM and SQLVM support automatic failover. The global load balancer will detect if any VMs become unavailable and re-route traffic accordingly. If SQLVM A fails, SQLVM B will automatically be promoted to primary, and a new replica will be created in the failed region upon recovery.
 
-Failover Mechanisms: Within the virtual machine of the webserver, as well as sql virtual machine, automatic failover feature is supported. The global load balancer can find out if any of the VMs in the region becomes unavailable and can re-route the traffic to other regions in such cases. As for the failure in the primary instance, if such occurs, SQLVM B will automatically get promoted to the primary node, while a new replica will be created in the failed region upon restoration of power.
+## Migration Steps
 
-Migration Steps:
+1. **Replication of Virtual Machines Across Regions**:
+   - Deploy duplicate WebServerVM and SQLVM instances in Region B.
+   - Use the cloud provider’s native tools (e.g., AWS EC2 AMI, Azure VM Snapshot) to replicate the VMs' configurations across regions.
+   - Set up automatic replication of static content for WebServerVM across multiple regions.
 
-Replication of Virtual Machines across Regions:
-Deploy duplicate WebServerVM and SQLVM instances in secondary region B because it is referred to as Region B.
-Utilize the cloud provider’s inbuilt native tools for performing the replication of the virtual machine images,
-i.e. AWS EC2 AMI and Azure VM Snapshot to prevent deviations in the regions configuration.
-To WebServerVM, set up automatic replication of static content that spans more than one region.
+2. **Configuration of Load Balancers**:
+   - Implement regional load balancers in both Region A and Region B.
+   - Configure global traffic distribution using a global load balancer with a "least load" primary selection feature.
+   - Implement health checks for VMs in both regions to enable automatic failover in case of failure.
 
-Changing the configuration of Load balancers:
-Implement regional load balancers in Region A and Region B.
-Configure global traffic distribution across regions using a Global Load balancer with Least Load Primary Selection Feature.
-Implement health checks for the VM's in both regions so that automatic failover can be carried out in case of failure.
+3. **Database Replication and Failover Provisions**:
+   - Set up asynchronous replication between SQLVM A (primary) and SQLVM B (secondary).
+   - Ensure failover provisions where, in case of Region A downtime, SQLVM B assumes the primary role.
+   - Establish monitoring and alert mechanisms for database replication and performance issues.
 
-Database replication and fail over provisions:
-Conduct asynchronous replication of the database in SQLVM A (active) and SQLVM B (standby).
-Ensure that there are fail-over provisions where in case there is a down time for Region A SQLVM B assumes the primary position.
-Establish monitoring and alerts for issues related to database replication and issues in performance of the application.
+## Conclusion
 
-Conclusion:
-
-This level of design enables an effective lift-and-shift application migration to the cloud retaining high availability, automatic switchover,
-and reduced mean downtime across regions. Since the systems of the front and back ends and global load balancer are duplicated, 
-the application can be operated despite well over 6- hours of nonstop downtime.
+This design facilitates an effective lift-and-shift migration to the cloud while ensuring high availability, automatic failover, and reduced mean downtime across regions. By replicating the front-end and back-end systems and using global load balancers, the application can continue operating even during prolonged regional outages, staying within the 6-hour downtime limit.
+```
