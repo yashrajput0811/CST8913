@@ -1,5 +1,3 @@
-Here is the content you've provided, formatted in Markdown for GitHub:
-
 ```md
 # Target Architecture Overview
 
