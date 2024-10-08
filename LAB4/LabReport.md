@@ -20,22 +20,22 @@ This document presents the high level design for migrating the API based applica
 ## Target Architecture Diagram
 
                                 ┌────────────────────┐
-                                │    Amazon Route 53 │
+                                │  Amazon Route 53   │
                                 │(DNS with Failover) │
                                 └────────────────────┘
                                           │
                                           ▼
                                 ┌────────────────────┐
                                 │    API Gateway     │
-                                │(Entry point for    │
+                                │ (Entry point for   │
                                 │ client requests)   │
                                 └────────────────────┘
                                           │
                                           ▼
                                 ┌────────────────────┐
                                 │    AWS Lambda      │
-                                │(Compute Layer for  │
-                                │ API Logic)         │
+                                │  (Compute Layer for│
+                                │    API Logic)      │
                                 └────────────────────┘
                                           │
                                           ▼
@@ -48,13 +48,13 @@ This document presents the high level design for migrating the API based applica
                                           │
                                           ▼
                                 ┌────────────────────┐
-                                │  Amazon CloudWatch │
+                                │ Amazon CloudWatch  │
                                 │(Monitoring & Alert)│
                                 └────────────────────┘
                                           │
                                           ▼
                                 ┌────────────────────┐
-                                │    Amazon S3       │
+                                │     Amazon S3      │
                                 │ (Optional: Static  │
                                 │ Content Storage)   │
                                 └────────────────────┘
