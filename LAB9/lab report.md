@@ -78,9 +78,8 @@ Monthly recurring costs for running ShopPro's infrastructure on Azure, categoriz
 | API Back-End Services       | Azure VMs, Auto-Scaling     | CAD 518.85            |                        
 | Payment Processing          | PCI-Compliant VMs           | CAD 4032.30           |                        
 | Database Layer              | SQL, NoSQL, Data Warehouse  | CAD 16,377.08         |                        
-| Data Analytics and ML       | GPU VMs, Batch Processing   | CAD 765.04            |                        
-| Monitoring & Logging        | Azure Monitor, Azure AD     | CAD 16.00             |                        
-| **Total Monthly Operational Cost** |                      | **$26,275.72**        |                       
+| Data Analytics and ML       | GPU VMs, Batch Processing   | CAD 765.04            |                                              
+| **Total Monthly Operational Cost** |                      | **CAD 26,275.72**     |                       
 
 ---
 
@@ -100,9 +99,8 @@ Monthly costs for monitoring, logging, security management, and budgeting tools.
 
 | Component             | Service                  | Monthly Cost Estimate |
 |-----------------------|--------------------------|-----------------------|
-| Monitoring and Logging| Azure Monitor, Security Center | $XX,XXX           |
-| Cost Management       | Azure Cost Management    | $XX,XXX               |
-| **Total Monthly Management Cost** |               | **$XX,XXX**           |
+| Monitoring and Logging| Azure Monitor, Azure AD  | CAD 16.00             |
+| **Total Monthly Management Cost** |              | **CAD 16.00**         |
 
 ---
 
