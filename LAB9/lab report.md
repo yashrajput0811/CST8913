@@ -40,8 +40,8 @@ The migration cost includes one-time expenses associated with moving databases, 
 | Service Category            | Service Type                | Monthly Cost Estimate | Estimated upfront Cost |
 |-----------------------------|-----------------------------|-----------------------|------------------------|
 | Storage                     |Azure Data Box,Storage account| CAD 149.58           | CAD 479.86             |
-| Databases                   | Azure VMs, Auto-Scaling     |  CAD 0.45             |                        |
-| Compute                    | Virtual machines             |  CAD 102.55           |                        |                      
+| Databases                   | Azure VMs, Auto-Scaling     |  CAD 0.45             |         -              |
+| Compute                    | Virtual machines             |  CAD 102.55           |         -              |                      
 | **Total Monthly Operational Cost** |                      | **CAD 252.13**        |  **CAD 479.86**        | 
 
 ---
