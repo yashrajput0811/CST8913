@@ -72,14 +72,15 @@ Monthly recurring costs for running ShopPro's infrastructure on Azure, categoriz
 
 ### Operational Cost Summary Table
 
-| Component                   | Service                      | Monthly Cost Estimate |
-|-----------------------------|------------------------------|-----------------------|
-| Web Front-End Cluster       | Azure VMs, CDN, App Gateway | $XX,XXX               |
-| API Back-End Services       | Azure VMs, Auto-Scaling     | $XX,XXX               |
-| Payment Processing          | PCI-Compliant VMs           | $XX,XXX               |
-| Database Layer              | SQL, NoSQL, Data Warehouse  | $XX,XXX               |
-| Data Analytics and ML       | GPU VMs, Batch Processing   | $XX,XXX               |
-| **Total Monthly Operational Cost** |                      | **$XX,XXX**           |
+| Component                   | Service                     | Monthly Cost Estimate | Estimated Upfront Cost |
+|-----------------------------|-----------------------------|-----------------------|------------------------|
+| Web Front-End Cluster       | Azure VMs, CDN, App Gateway | CAD 4566.45           |                        |
+| API Back-End Services       | Azure VMs, Auto-Scaling     | CAD 518.85            |                        |
+| Payment Processing          | PCI-Compliant VMs           | CAD 4032.30           |                        |
+| Database Layer              | SQL, NoSQL, Data Warehouse  | CAD 16,377.08         |                        |
+| Data Analytics and ML       | GPU VMs, Batch Processing   | CAD 765.04            |                        |
+| Monitoring & Logging        | Azure Monitor, Azure AD     | CAD 16.00             |                        |
+| **Total Monthly Operational Cost** |                      | **$XX,XXX**           |                        |
 
 ---
 
