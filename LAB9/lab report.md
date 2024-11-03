@@ -151,4 +151,3 @@ The proposed migration and operational strategy for ShopPro International offer 
 
 ---
 
-*End of Report*
