@@ -22,7 +22,7 @@ The migration cost includes one-time expenses associated with moving databases, 
 ### Components Included:
 1. **Data Transfer**:
     - Estimation of total data transfer volume from on-premises to Azure across multiple regions.
-    - **Service**: Azure Data Box and/or Azure Import/Export
+    - **Service**: Azure Data Box and Storage account
     - **Cost Estimate**: Based on region-specific data transfer rates and volume of data.
 
 2. **Database Replication**:
@@ -50,12 +50,12 @@ The migration cost includes one-time expenses associated with moving databases, 
 Monthly recurring costs for running ShopPro's infrastructure on Azure, categorized by region and service type.
 
 ### 1. Web Front-End Cluster
-- **Regions**: North America, Europe, Asia-Pacific
+- **Regions**: Canada Central, Europe-West, Asia-Pacific
 - **Resources**:
   - 10 Virtual Machines (VMs) per region with high availability and load balancing.
   - **Additional Services**: Azure CDN, Application Gateway for load balancing.
-  - **Cost Comparison**: Reserved instances vs. pay-as-you-go.
-
+ 
+    
 ### 2. API Back-End Services
 - **Architecture**: Microservices on 20 VMs with auto-scaling enabled.
 - **Cost Considerations**: Auto-scaling to handle peak traffic.
@@ -93,7 +93,7 @@ Monthly costs for monitoring, logging, security management, and budgeting tools.
 
 ### Components:
 1. **Monitoring and Logging**:
-   - **Service**: Azure Monitor, Azure Security Center
+   - **Service**: Azure Monitor, Azure Active Directory
    - **Cost**: Calculated for real-time monitoring, alerts, and security management.
 
 2. **Cost Management**:
