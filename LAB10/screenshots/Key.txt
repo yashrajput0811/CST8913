@@ -1,0 +1,7 @@
+6NDTW-WBRRW-YPB3H-37BRH-463GQ
+
+jimish-vm-1
+Admin@1
+Azure-Key;PROD;e39de75c-b796-4bdd-888d-f3d21250910c;431fca8d-e614-4268-aa3c-22a2e684933a;Lab-VM-Migrate;Pro-Lab-VM-Migration;740f7975-d419-40f3-a62e-d770ed2aa0fd;85e98092-296b-4dbc-ba94-e52aa588198a;https://discoverysrv.cc.prod.migration.windowsazure.com/;canadacentral;false
+
+PZjG5hqsNQKxeABe
