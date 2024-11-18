@@ -262,4 +262,4 @@ This document provides a highly detailed walkthrough of migrating a VMware virtu
 2. Always use the latest version of the Azure Mobility Agent.
 3. Pre-plan target resource group and network configurations for smoother migration.
 
-## Notes: All oter screeens are in screenshots folder so please check all screenshots for more details.
+## Notes: All other screenshots are in screenshots folder so please check screenshots folder under this same github repo for more clarification of the work.
